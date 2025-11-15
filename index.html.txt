@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Game Signal</title>
+    <style>
+        body {
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            font-family: Arial;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .game-select {
+            background: rgba(255,255,255,0.9);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .screenshot-area {
+            background: rgba(255,255,255,0.8);
+            height: 300px;
+            border-radius: 15px;
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px dashed #ff4757;
+        }
+        
+        .anime-girl {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        
+        button {
+            background: #ff6b6b;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            margin: 10px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-select">
+        <select id="gameSelect">
+            <option value="csgo">CS:GO Cases</option>
+            <option value="dota">Dota 2 Loot</option>
+            <option value="valorant">Valorant Cases</option>
+        </select>
+    </div>
+    
+    <div class="screenshot-area" id="screenshotArea">
+        <img src="anime-girl-1.png" class="anime-girl" alt="Anime Assistant">
+    </div>
+    
+    <button onclick="uploadScreenshot()">📸 Отправить скриншот</button>
+    <button onclick="getSignal()">🎯 Получить сигнал</button>
+
+    <script>
+        function uploadScreenshot() {
+            // Заглушка для загрузки скриншота
+            document.getElementById('screenshotArea').innerHTML = 
+                '<p>📱 Скриншот загружен!</p>';
+        }
+        
+        function getSignal() {
+            const spins = Math.floor(Math.random() * 61) + 30;
+            const chance = Math.floor(Math.random() * 14) + 79;
+            
+            // Анимация загрузки
+            document.getElementById('screenshotArea').innerHTML = 
+                '<p>⏳ Анализируем...</p>';
+            
+            setTimeout(() => {
+                document.getElementById('screenshotArea').innerHTML = 
+                    `<h3>🎰 Результат:</h3>
+                     <p>Бонус выпадет через: <strong>${spins} спинов</strong></p>
+                     <p>Шанс: <strong>${chance}%</strong></p>`;
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
